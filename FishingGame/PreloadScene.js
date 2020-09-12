@@ -27,7 +27,7 @@ class PreloadScene extends Phaser.Scene {
         this.load.image('fish5', 'assets/fish-5.png');
         this.load.image('correct', 'assets/correct.png');
         this.load.image('incorrect', 'assets/incorrect.png');
-        this.load.image('gameover', 'assets/gameover4.png');
+        this.load.image('gameover', 'assets/gameover5.png');
         this.load.image('home', 'assets/home.png');
 
         this.cameras.main.setBackgroundColor('#000000');
