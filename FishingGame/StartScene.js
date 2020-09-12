@@ -4,16 +4,7 @@ class StartScene extends Phaser.Scene {
 
     }
     preload(){
-        // this.load.image('circle', 'assets/circle.png');
-        // this.load.image('bg', 'assets/background.png');
-        // this.load.image('jellyfish1', 'assets/Jellyfish1.png');
-        // this.load.image('jellyfish2', 'assets/Jellyfish2.png');
-        // this.load.image('jellyfish3', 'assets/Jellyfish3.png');
-        // this.load.image('jellyfish4', 'assets/Jellyfish4.png');
-        // this.load.image('jellyfish5', 'assets/Jellyfish5.png');
-        // this.load.image('jellyfish6', 'assets/Jellyfish6.png');
-        // this.load.image('logo', 'assets/logo.png');
-        // this.load.image('play', 'assets/play.png');
+        
     }
     
     create(){

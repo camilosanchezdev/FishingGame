@@ -13,21 +13,6 @@ class GameScene extends Phaser.Scene {
     life3;
     aGrid = new AlignGrid({scene: this, rows: 11, cols: 11});
     preload(){
-        // this.load.image('jellyfish1', 'assets/Jellyfish1.png');
-        // this.load.image('jellyfish2', 'assets/Jellyfish2.png');
-        // this.load.image('jellyfish3', 'assets/Jellyfish3.png');
-        // this.load.image('jellyfish4', 'assets/Jellyfish4.png');
-        // this.load.image('jellyfish5', 'assets/Jellyfish5.png');
-        // this.load.image('jellyfish6', 'assets/Jellyfish6.png');
-        // this.load.image('fish1', 'assets/fish-1.png');
-        // this.load.image('fish2', 'assets/fish-2.png');
-        // this.load.image('fish3', 'assets/fish-3.png');
-        // this.load.image('fish4', 'assets/fish-4.png');
-        // this.load.image('fish5', 'assets/fish-5.png');
-        // this.load.image('correct', 'assets/correct.png');
-        // this.load.image('incorrect', 'assets/incorrect.png');
-        // this.load.image('circle', 'assets/circle.png');
-        // this.load.image('bg', 'assets/background.png');
         
     }
     
@@ -69,7 +54,7 @@ class GameScene extends Phaser.Scene {
         this.life3 = this.add.sprite(190, 50, 'jellyfish1').play('explosion').setScale(.8);
 
         // Count Down time
-        this.initialTime = 60;
+        this.initialTime = 30;
         this.text = this.add.text(550, 10, formatTime(this.initialTime), {
             fontSize: '60px',
             color: '#000000'
