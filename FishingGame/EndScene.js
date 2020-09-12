@@ -39,13 +39,13 @@ class EndScene extends Phaser.Scene {
         let jelly2 = this.add.sprite(800, 600, 'jellyfish1').play('explosion');
         let gameover =  this.add.image(600, 300, 'gameover');
         let play = this.add.image(650, 700, 'play').setScale(.199).setInteractive();
-        play.on('pointerup', () => {
+        play.on('pointerdown', () => {
             gameState.score = 0;
             this.scene.stop('EndScene');
             this.scene.start('GameScene');
           });
           let home = this.add.image(500, 700, 'home').setScale(.199).setInteractive();
-          home.on('pointerup', () => {
+          home.on('pointerdown', () => {
             gameState.score = 0;
             this.scene.stop('EndScene');
             this.scene.start('StartScene');

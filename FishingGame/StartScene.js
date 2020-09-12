@@ -36,7 +36,7 @@ class StartScene extends Phaser.Scene {
         let jelly2 = this.add.sprite(800, 600, 'jellyfish1').play('explosion');
         let logo = this.add.image(600, 300, 'logo');
         let play = this.add.image(600, 700, 'play').setScale(.199).setInteractive();
-        play.on('pointerup', () => {
+        play.on('pointerdown', () => {
             this.scene.stop('StartScene');
             this.scene.start('GameScene');
           });

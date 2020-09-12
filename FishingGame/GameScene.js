@@ -245,21 +245,21 @@ this.turnFishOn(this.rnd[this.rndFish]);
      this.aGrid.placeAtIndex(8, this.text);
 
            // interaction
-    gameState.fish1.on('pointerup', () => {
+    gameState.fish1.on('pointerdown', () => {
         this.matchFish(gameState.fish1);
     });
-    gameState.fish2.on('pointerup', () => {
+    gameState.fish2.on('pointerdown', () => {
         this.matchFish(gameState.fish2);
 
     });
-    gameState.fish3.on('pointerup', () => {
+    gameState.fish3.on('pointerdown', () => {
         this.matchFish(gameState.fish3);
     });
-    gameState.fish4.on('pointerup', () => {
+    gameState.fish4.on('pointerdown', () => {
         this.matchFish(gameState.fish4);
 
     });
-    gameState.fish5.on('pointerup', () => {
+    gameState.fish5.on('pointerdown', () => {
         this.matchFish(gameState.fish5);
 
 });
