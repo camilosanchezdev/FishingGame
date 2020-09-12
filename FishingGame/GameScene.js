@@ -69,7 +69,7 @@ class GameScene extends Phaser.Scene {
         this.life3 = this.add.sprite(190, 50, 'jellyfish1').play('explosion').setScale(.8);
 
         // Count Down time
-        this.initialTime = 20;
+        this.initialTime = 60;
         this.text = this.add.text(550, 10, formatTime(this.initialTime), {
             fontSize: '60px',
             color: '#000000'
