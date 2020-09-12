@@ -11,23 +11,23 @@ class GameScene extends Phaser.Scene {
     life1;
     life2;
     life3;
-    
+    aGrid = new AlignGrid({scene: this, rows: 11, cols: 11});
     preload(){
-        this.load.image('jellyfish1', 'assets/Jellyfish1.png');
-        this.load.image('jellyfish2', 'assets/Jellyfish2.png');
-        this.load.image('jellyfish3', 'assets/Jellyfish3.png');
-        this.load.image('jellyfish4', 'assets/Jellyfish4.png');
-        this.load.image('jellyfish5', 'assets/Jellyfish5.png');
-        this.load.image('jellyfish6', 'assets/Jellyfish6.png');
-        this.load.image('fish1', 'assets/fish-1.png');
-        this.load.image('fish2', 'assets/fish-2.png');
-        this.load.image('fish3', 'assets/fish-3.png');
-        this.load.image('fish4', 'assets/fish-4.png');
-        this.load.image('fish5', 'assets/fish-5.png');
-        this.load.image('correct', 'assets/correct.png');
-        this.load.image('incorrect', 'assets/incorrect.png');
-        this.load.image('circle', 'assets/circle.png');
-        this.load.image('bg', 'assets/background.png');
+        // this.load.image('jellyfish1', 'assets/Jellyfish1.png');
+        // this.load.image('jellyfish2', 'assets/Jellyfish2.png');
+        // this.load.image('jellyfish3', 'assets/Jellyfish3.png');
+        // this.load.image('jellyfish4', 'assets/Jellyfish4.png');
+        // this.load.image('jellyfish5', 'assets/Jellyfish5.png');
+        // this.load.image('jellyfish6', 'assets/Jellyfish6.png');
+        // this.load.image('fish1', 'assets/fish-1.png');
+        // this.load.image('fish2', 'assets/fish-2.png');
+        // this.load.image('fish3', 'assets/fish-3.png');
+        // this.load.image('fish4', 'assets/fish-4.png');
+        // this.load.image('fish5', 'assets/fish-5.png');
+        // this.load.image('correct', 'assets/correct.png');
+        // this.load.image('incorrect', 'assets/incorrect.png');
+        // this.load.image('circle', 'assets/circle.png');
+        // this.load.image('bg', 'assets/background.png');
         
     }
     
@@ -239,47 +239,44 @@ class GameScene extends Phaser.Scene {
 
 this.turnFishOn(this.rnd[this.rndFish]);
   // GRID
-  this.aGrid = new AlignGrid({scene: this, rows: 11, cols: 11});
+
      this.aGrid.placeAtIndex(104, circle);
      this.aGrid.placeAtIndex(104, gameState.answer);
      this.aGrid.placeAtIndex(8, this.text);
+
+           // interaction
+    gameState.fish1.on('pointerup', () => {
+        this.matchFish(gameState.fish1);
+    });
+    gameState.fish2.on('pointerup', () => {
+        this.matchFish(gameState.fish2);
+
+    });
+    gameState.fish3.on('pointerup', () => {
+        this.matchFish(gameState.fish3);
+    });
+    gameState.fish4.on('pointerup', () => {
+        this.matchFish(gameState.fish4);
+
+    });
+    gameState.fish5.on('pointerup', () => {
+        this.matchFish(gameState.fish5);
+
+});
 
     } // end CREATE
    
 
 
     update(){
-        // interaction
-    gameState.fish1.on('pointerup', () => {
-        this.matchFish(gameState.fish1);
-   
-});
-gameState.fish2.on('pointerup', () => {
-    this.matchFish(gameState.fish2);
-     
-
-});
-gameState.fish3.on('pointerup', () => {
-    this.matchFish(gameState.fish3);
-   
-});
-gameState.fish4.on('pointerup', () => {
-    this.matchFish(gameState.fish4);
-   
-
-});
-gameState.fish5.on('pointerup', () => {
-    this.matchFish(gameState.fish5);
-   
-
-});
+  
     }   // end update
 
     // functions
 
     turnFishOn(index){
         gameState.answer = this.fishArray[index];
-        this.aGrid = new AlignGrid({scene: this, rows: 11, cols: 11});
+        //this.aGrid2 = new AlignGrid({scene: this, rows: 11, cols: 11});
         this.aGrid.placeAtIndex(104, gameState.answer);
         gameState.answer.visible = true;
         gameState.answer.setName(this.fishNombres[index]);
@@ -293,15 +290,18 @@ gameState.fish5.on('pointerup', () => {
     }
     matchFish(fish){
         // +1 point in score
+        
         gameState.score++;
 
         fish.setActive(false).setVisible(false);
         this.hideFish();
         this.rndFish++;
         if(fish.name === gameState.answer.name){
-            this.aGrid = new AlignGrid({scene: this, rows: 11, cols: 11});
+        //this.aGrid3 = new AlignGrid({scene: this, rows: 11, cols: 11});
             let correcto = this.add.image(0, 0, 'correct');
+            
             this.aGrid.placeAtIndex(16, correcto);
+           
             correcto.setScale(.05);
             
             this.tweens.add({
@@ -316,6 +316,7 @@ gameState.fish5.on('pointerup', () => {
                     correcto.destroy();
                 },
             });
+           
         }
         else{
             // lifes
@@ -336,7 +337,7 @@ gameState.fish5.on('pointerup', () => {
             }
             //-1 point in score
             gameState.score--;
-            this.aGrid = new AlignGrid({scene: this, rows: 11, cols: 11});
+          //  this.aGrid4 = new AlignGrid({scene: this, rows: 11, cols: 11});
             let incorrect = this.add.image(600, 130, 'incorrect');
             this.aGrid.placeAtIndex(16, incorrect);
             incorrect.setScale(.05);
@@ -354,7 +355,9 @@ gameState.fish5.on('pointerup', () => {
                 },
             });
         }
+        
         this.turnFishOn(this.rnd[this.rndFish]);
-    }
+      
+    }// end matchfish
 
 } // end class

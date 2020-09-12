@@ -22,7 +22,8 @@ const config = {
         width: 760,
         height: 1150
     },
-	scene: [StartScene, GameScene, EndScene]
+	scene: [PreloadScene, StartScene, GameScene, EndScene]
 };
+
 
 const game = new Phaser.Game(config);
